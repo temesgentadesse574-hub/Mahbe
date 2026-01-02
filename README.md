@@ -32,13 +32,122 @@
         .logo-area { display: flex; align-items: center; gap: 8px; }
         .logo-img-small { height: 40px; border-radius: 50%; border: 2px solid white; }
         .eth-flag { width: 22px; height: 13px; border-radius: 2px; border: 1px solid #fff; }
-        nav a { color: black; text-decoration: none; font-weight: bold; margin-left: 12px; font-size: 0.8rem; cursor: pointer; }
+        nav a { color: black; text-decoration: none; font-weight: bold; margin-left: 15px; font-size: 0.85rem; cursor: pointer; }
 
-        /* Login Overlay */
-        #login-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(135deg, var(--blue), #002a4d); 
-            display: flex; justify-content: center; align-items: center; z-index: 3000; color: white; 
+        /* Content Sections */
+        .content-section { display: none; padding: 110px 8% 60px; animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Home Style */
+        .home-hero { text-align: center; }
+        .large-logo { 
+            width: 140px; height: 140px; border-radius: 50%; 
+            border: 5px solid var(--yellow); box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            margin-bottom: 20px; 
+        }
+        .welcome-title { font-size: 2.2rem; color: var(--blue); font-weight: bold; margin-bottom: 10px; }
+
+        h2 { color: var(--blue); border-bottom: 3px solid var(--yellow); display: inline-block; margin-bottom: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 25px; }
+        .card { 
+            background: rgba(255, 255, 255, 0.7); padding: 25px; border-radius: 15px; 
+            border-left: 6px solid var(--blue); backdrop-filter: blur(5px); 
+            text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Creator Style */
+        .creator-text { font-size: 0.75rem; color: #666; margin-top: 40px; border-top: 1px solid #ddd; padding-top: 10px; font-style: italic; }
+
+        .social-footer { display: flex; justify-content: center; gap: 18px; margin: 30px 0; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; transition: 0.3s; }
+        .tg { background: #0088cc; } .yt { background: #ff0000; } .tk { background: #000; }
+
+        footer { 
+            background: var(--gradient-footer); 
+            padding: 25px; text-align: center; 
+            border-top: 1px solid #ddd; font-size: 0.8rem; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <img src="https://i.ibb.co/Mk7dRNR1/IMG-20260102-205355-990.png" class="logo-img-small">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg" class="eth-flag" alt="Ethiopia">
+            <span style="font-weight:bold; font-size: 0.95rem;">ማሕቤ</span>
+        </div>
+        <nav>
+            <a onclick="showSection('home')">Home</a>
+            <a onclick="showSection('about')">About</a>
+            <a onclick="showSection('services')">Service</a>
+            <a onclick="showSection('gallery')">Gallery</a>
+        </nav>
+    </header>
+
+    <div id="home" class="content-section home-hero" style="display: block;">
+        <img src="https://i.ibb.co/Mk7dRNR1/IMG-20260102-205355-990.png" class="large-logo">
+        <div class="welcome-title">እንኳን ደህና መጡ!</div>
+        <p style="font-size: 1.25rem; color: #444;">ማሕቤ የቢዝነስ አቅራቢዎች ነን</p>
+        <p style="color: #d9534f; font-weight: bold; font-size: 1.5rem; margin-top: 10px;">ምን ይፈልጋሉ?</p>
+        <p style="color: #666;">Graphics Design, Video Editing or What you want NOW!</p>
+        
+        <div class="grid">
+            <div class="card"><h4>🚩 ባነር</h4><p>ከ100 በላይ ስራዎች</p></div>
+            <div class="card"><h4>🎨 ሎጎ</h4><p>ከ50 በላይ ስራዎች</p></div>
+            <div class="card"><h4>🖼️ Thumbnail</h4><p>ከ18 በላይ ስራዎች</p></div>
+        </div>
+    </div>
+
+    <div id="about" class="content-section">
+        <h2>ስለ እኛ (About)</h2>
+        <p>እኛ ማሕቤ ቢዝነስ ማዕከል ነን። <strong>ማሕቤ</strong> ማለት <strong>"ማሕፀነ ቤተክርስቲያን ሚዲያ"</strong> ማለት ሲሆን፣ ሁለተኛ ትርጉሙ ደግሞ <strong>"ማሕቤ ሕትመት ቤት"</strong> የሚል ነው።</p>
+        <p>በዚህም መንፈሳዊና ዓለማዊ ለስጋችንም ለነፍሳችንም የሚጠቅሙን ነገሮች የምንገለገልበት ትልቅ ካምፓኒ ነው ።</p>
+        <div class="card" style="margin-top: 25px;">
+            <h4>🙏 መንፈሳዊ አገልግሎቶች</h4>
+            <p>ቅኔ፣ ስብከተ ወንጌል፣ የመጻሕፍት ትምህርት፣ የመጻሕፍት ሽያጭ</p>
+        </div>
+        <p class="creator-text">Created by Temesgen Tadesse @temu_amen on Telegram</p>
+    </div>
+
+    <div id="services" class="content-section">
+        <h2>አገልግሎቶቻችን (Service)</h2>
+        <div class="grid">
+            <div class="card"><h4>📹 ቪዲዮ ኢዲቲንግ</h4><p>ከፍተኛ ጥራት ያለው የቪዲዮ ኤዲቲንግ አገልግሎት</p></div>
+            <div class="card"><h4>🎨 ግራፊክስ ዲዛይን</h4><p>የፈጠራ ስራዎች፣ ባነር፣ ሎጎ እና ስቲከሮች</p></div>
+            <div class="card"><h4>📱 ዲጅታል ማርካቲንግ</h4><p>የእርስዎን ምርትና አገልግሎት ለብዙዎች ማድረስ</p></div>
+        </div>
+    </div>
+
+    <div id="gallery" class="content-section" style="text-align:center;">
+        <h2>የስራዎቻችን ማሳያ (Gallery)</h2>
+        <div style="background: #222; color: var(--yellow); padding: 60px 20px; border-radius: 20px; font-size: 1.6rem; font-weight: bold;">
+            እስካሁን የተሰሩ ስራዎች በፎቶ <br> 
+            <span style="letter-spacing: 3px; font-size: 1.2rem; color: #fff;">COMING SOON...</span>
+        </div>
+    </div>
+
+    <div class="social-footer">
+        <a href="https://t.me/Mahbe_4" target="_blank" class="social-icon tg"><i class="fab fa-telegram-plane"></i></a>
+        <a href="#" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon tk"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <footer>
+        <p style="font-weight: bold; margin-bottom: 5px;">© 2026 ማሕቤ ቢዝነስ ማዕከል</p>
+        <p>📞 0928525029 / 0971825151</p>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            const sections = document.getElementsByClassName('content-section');
+            for (let s of sections) { s.style.display = 'none'; }
+            document.getElementById(id).style.display = 'block';
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>            display: flex; justify-content: center; align-items: center; z-index: 3000; color: white; 
         }
         .login-box { 
             background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); 
